@@ -14,9 +14,13 @@ namespace Bahco665
 
         public Page(Link link)
         {
+            //Create an HTML Agility Pack document for this link
             var hapDocument = new HtmlDocument();
             hapDocument.LoadHtml(new WebClient().DownloadString(link.LinkValue));
             Content = hapDocument;
+
+            //populate the other properties
+            PageLink = link;
         }
         
         #endregion
@@ -24,9 +28,7 @@ namespace Bahco665
         #region Properties
         public HtmlDocument Content { get; set; }
 
-        public string Url { get; private set; }
-
-        public string ParentUrl { get; private set; }
+        public Link PageLink { get; private set; }
 
         #endregion
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bahco665
 {
+    //TODO: need to implement iEquatable (with reference equality?)
     internal class Link
     {
         #region Constructors

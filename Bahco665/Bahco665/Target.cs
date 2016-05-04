@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Bahco665
 {
-    internal enum StorageTarget
+    public enum StorageTarget
     {
         Disk,
-        SqlLit
+        SqlLite
     }
 
     internal abstract class Target
     {
         #region Properties
 
-        public StorageTarget StorageTarget { get; private set; }
+        public StorageTarget StorageTarget { get; protected set; }
 
-        public int LinkDepth { get; private set; }
+        public int LinkDepth { get; protected set; }
 
-        public bool ConstrainToSite { get; private set; }
+        public bool ConstrainToSite { get; protected set; }
 
         #endregion
 
@@ -37,7 +37,9 @@ namespace Bahco665
 
         public FileTarget(StorageTarget storageTarget, int linkDepth, bool constrainToSite)
         {
-            throw new NotImplementedException();
+            StorageTarget = storageTarget;
+            LinkDepth = linkDepth;
+            ConstrainToSite = constrainToSite;
         }
 
         #endregion
